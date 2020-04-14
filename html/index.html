@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="poucoDeCSS.css">
+    <title>Exercícios</title>
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }   
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html" wm-link>00 - Teste</a> |
+        <a href="exercicios/texto1.html" wm-link>01 - Texto1</a> |
+        <a href="exercicios/texto2.html" wm-link>02 - Texto2</a> |
+        <a href="exercicios/listas.html" wm-link>03 - Listas</a> |
+        <a href="exercicios/listaAninhada.html" wm-link>04 - Lista Aninhada</a> |
+        <a href="exercicios/links.html" wm-link>05 - Links</a> |
+        <a href="exercicios/tabela.html" wm-link>06 - Tabela</a> |
+    </nav>
+    <section id = "conteudo"></section>
+    <footer>
+        Curso de WEB
+    </footer>
+
+    <script>
+        document.querySelectorAll('[wm-link]').forEach(link =>{
+            const conteudo = document.getElementById('conteudo')
+            link.onclick = function(e) {
+                e.preventDefault()
+                //link.getAttribute() // baseado em promise, permite fazer requisição ajax, sem precisar do jquary ou outros
+                fetch(link.href) 
+                    .then(resp => resp.text()) //resp.text() serve pra pegar o conteúdo HTML da página q fiz uma requisição, retorna uma promise
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>

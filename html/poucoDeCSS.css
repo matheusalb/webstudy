@@ -1,0 +1,13 @@
+#textoPrincipal {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px;
+    background-color: black;
+    margin-bottom: 500px;
+    margin-top: 500px;
+}
+
+.myclass {
+    color: blue;
+}     

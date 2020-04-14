@@ -1,0 +1,1 @@
+// em javascriopt só permite ter um único PAI!!!! (RELAÇÃO E-1)

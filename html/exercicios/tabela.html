@@ -1,0 +1,62 @@
+<table>
+    <caption>Produtos</caption>
+    <thead>
+        <tr>
+            <!-- cabeçalho da tabela -->
+            <th>Produtos</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- uma linha em uma tabela é uma TR -->
+        <tr>
+            <!-- td diz um elemento da célula -->
+            <td>iPad</td>
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <td>Samsung S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <!-- colspan permite expandir o tamanho de ocupação de célula tabela na largura e o rowspan na altura -->
+            <td colspan="3">Total</td>
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    /* lembrando que classes CSS são concatenadas */
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+    
+    /* no tr que está dentro de thead ...*/
+    thead tr { 
+        border-bottom: solid 3px #444;
+    }
+    /* no tr  dentro do tbody quando o mouse passar por cima (função do hover)*/
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+
+</style>

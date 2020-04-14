@@ -1,0 +1,80 @@
+<h1>Projeto</h1>
+<ul class="tree" id="root">
+    <li>
+        <span id="backend" headList>backend</span> 
+        <ul id="backend-list">
+            <li>
+                <span id="app" headList>app</span>
+                <ul id="app-list">
+                    <li>produto.js</li>
+                    <li>usuário.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span id=config headList>config</span>
+                <ul id="config-list">
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+       <span id=frontend headList>frontend</span> 
+        <ul id="frontend-list">
+            <li>
+                <span id="public" headList>public</span> 
+                <ul id='public-list'>
+                    <li>app.cs</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+// function applyFunctionInWhoHasChildren(father) {
+//     if(father.children.length) {
+//         if(father.tagName='ul'){
+//             father.onclick = function(e) {
+//                 console.log('sou eu: ', father)
+//                 console.log('filhos: ', father.children.length)
+//                 Array.prototype.map.call(father.children, function(children) {
+//                     if(children.style.display === 'none') children.style.display=undefined;
+//                     else children.style.display='none'
+//                 })
+//             }
+//         }   
+//         Array.prototype.map.call(father.children, children => {
+//             applyFunctionInWhoHasChildren(children)
+//         })
+//     }
+// }
+
+
+
+// //applyFunctionInWhoHasChildren(document.getElementById('root'))
+// document.getElementById('root').onclick=''
+
+// console.log(typeof document.getElementById('root').onclick)
+document.querySelectorAll('[headList]').forEach(span => {
+    span.onclick = function(e) {
+        // da pra pegar o próximo elemento a partir de um elemento!!!!
+        // span.nextElementSibling(); nesse caso seria o UL; sendo uma outra forma de resolver
+        let list = this.id+'-list'
+        if(document.getElementById(list).style.display !=='none'){
+            document.getElementById(list).style.oldDisplay = document.getElementById(list).style.display
+            document.getElementById(list).style.display ='none'
+        } else document.getElementById(list).style.display = document.getElementById(list).style.oldDisplay
+        // podia ser 'block' : 'none'
+    }
+})
+
+
+</script>

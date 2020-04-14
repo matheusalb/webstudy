@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Um pouco de CSS</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="poucoDeCSS.css">
+            <!-- criando classe CSS com .nome; 
+                pra utilizar CSS em um ID #nome_id
+            -->
+        <style>
+            h1 {
+                font-size: 100px;
+            }
+
+            .fundoVermelho {
+                background-color: #C00000;
+            }
+
+            .negrito {
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The Doideir@s</h1>
+        <span id="textoPrincipal">Texto 1</span><br><br><br>
+        <span class="fundoVermelho negrito">Texto 2</span><br><br><!-- class permite aplicar a mesma classe mais de uma vez, tem muito a vez com estilo -->
+        <span class="fundoVermelho" wm-atrib>Texto 3</span> <!-- o espaço separa as classes;class permite aplicar a mesma classe mais de uma vez, tem muito a vez com estilo -->
+    </body>
+</html>
+<!-- da pra usar o style dentro da tag, mas fica muito desorganizad-->
+
+<!-- atributo personificados é encontrado por, por exemplo, [wm-atrib], entre cochetes
+    document.querySelector
+-->
