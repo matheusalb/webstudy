@@ -1,0 +1,106 @@
+<p dw-slide>
+    <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" 
+    alt="Muro da Cidade"
+    width="513" height="342"
+    title="Muro da Cidade por Tarso Bessa"
+    >
+</p>
+
+<p dw-slide>
+    <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+    alt="Intro Cod3r" height="342"  >
+
+
+</p>
+
+<p class="circular" dw-slide>
+    <img src="http://files.cod3r.com.br/curso-web/imagem3.png" 
+    alt="Rio de Janeiro" height="342">
+</p>
+
+<p class="texto" dw-slide>
+    <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" 
+    alt="Avatar" height="50" align="left">
+    oi, meu
+    nome é
+    matheus.
+</p>
+
+<p class="cidade" dw-slide></p>
+
+<p>
+    <picture>
+        <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" 
+            media="(min-width: 600px)">
+        <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+    </picture>
+</p>
+
+<style>
+    .circular {
+        width: 513px;
+        background-color: #000;
+    }
+    
+    .texto {
+        width: 400px;
+    }
+    .texto img {
+        margin: 0px 12px 2px 0px;
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        src: url();
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+
+    p {
+        position: absolute;
+        display: none;
+        left: -50
+    }
+
+</style>
+
+<script>
+let index= {
+    _value: 0,
+    get value() {
+        if(this._value >= 5) this._value = 0
+        return this._value
+    },
+    next(){
+        this._value++
+    }
+}
+
+let paragrafos = document.querySelectorAll('[dw-slide]')
+// Array.from(document.querySelectorAll('[dw-slide]')) transforma em um array nativo
+function initial() {
+    paragrafos.forEach((element) => element.style.left = document.body.clientWidth + 'px')
+}
+
+//  innerWidth == document.body.clientWidth
+console.log(document.body.clientWidth)
+function move() {
+    paragrafos[index.value].style.display = 'initial'
+   // console.log(innerWidth, document.body.clientWidth)
+    if(parseInt(paragrafos[index.value].style.left) >= -513) {
+        paragrafos[index.value].style.left = (parseInt(paragrafos[index.value].style.left) - 10) +'px'
+    } else {
+        paragrafos[index.value].style.left = document.body.clientWidth + 'px'
+        paragrafos[index.value].style.display = 'none'
+        index.next()
+        paragrafos[index.value].style.left = document.body.clientWidth + 'px'
+    }
+}
+
+initial()
+setInterval(move, 10);
+// setTimeOut
+</script>

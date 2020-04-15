@@ -9,6 +9,7 @@ const express = require('express')
 const app = express()
 
 // vai fazer o parser no body da requisição para todas as páginas, se a requisição for 'urlencoded'
+// aplica um método a todos tipos de entradas do site
 app.use(bodyParser.urlencoded({extended: true}))
 
 // resposta para a requisição get em /produtos

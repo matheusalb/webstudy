@@ -1,0 +1,50 @@
+<p>
+    <img src="" alt="" id="slide" class="slideImage">
+</p>
+
+<style>
+    .slideImage {
+        margin-left: -100px;
+        width: 513px;
+        height: 342px;
+        position: absolute;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem1.jpg')
+    }
+</style>
+
+
+<script>
+const imgs = [
+"http://files.cod3r.com.br/curso-web/imagem1.jpg",
+"http://files.cod3r.com.br/curso-web/imagem2.gif",
+"http://files.cod3r.com.br/curso-web/imagem3.png",
+"http://files.cod3r.com.br/curso-web/logo-estreita.png",
+"http://files.cod3r.com.br/curso-web/logo-larga.png"
+]
+// document.querySelector('#slide').src = 'http://files.cod3r.com.br/curso-web/imagem1.jpg'
+//document.getElementById('slide').style.backgroundImage = 'url('+"http://files.cod3r.com.br/curso-web/logo-larga.png"+')'
+
+let index = {
+    _value: 0,
+    get value() {
+        if(this._value >= imgs.length) this._value = 0
+        return this._value++
+    }
+}
+
+document.querySelector('#slide').animate([
+    {
+        left: -10 
+    },
+    { 
+        left: document.body.clientWidth
+    }
+],  {
+    duration: 5000,
+    iterations: Infinity
+})
+setInterval(()=>{
+    document.getElementById('slide').style.backgroundImage = 'url('+imgs[index.value]+')'
+}, 5000)
+
+</script>

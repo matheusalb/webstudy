@@ -1,0 +1,64 @@
+<video id="meuVideo" width="800" height="450" controls controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+</video>
+
+<div wm-progresso="meuVideo" class="progresso" id='envolto'>
+    <div>
+
+    </div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border:solid 1px #444;
+        margin: 20px;
+    }
+
+    /* aplicando style a uma div que está dentro de um elemento que tem
+        a classe progresso!  */
+    .progresso > div{
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+    document.querySelector('[wm-play]').onclick = function (e) {
+        document.getElementById('meuVideo').play()
+    }
+    document.querySelector('[wm-pause]').onclick = function (e) {
+        document.getElementById('meuVideo').pause()
+    }
+
+    // bloqueia apertar o botao direito no video e baixar
+    document.getElementById('meuVideo').oncontextmenu = false
+
+    function printProgress() {
+        let currentTime = document.getElementById('meuVideo').currentTime
+        let fullTime = document.getElementById('meuVideo').duration
+        //console.log(currentTime)
+        //console.log(document.getElementById('meuVideo').duration)
+        let maxWidth = window.getComputedStyle(document.querySelector('[wm-progresso]')).getPropertyValue('width')
+        let porct = (currentTime/fullTime) * 100 //* parseInt(maxWidth)
+        document.querySelector('[wm-progresso=meuVideo] > div').style.width = porct + '%'
+        document.querySelector('[wm-progresso=meuVideo] > div').innerHTML= porct.toFixed(1)
+        // o padrão não é %, se quiser botar, tem q concatenar com  '%'
+        // div que tem como 'pai' um cara que tem a propriedade wm-progresso=meuVideo
+    }
+    // 
+    // The .style property is for getting styles that were placed directly on the element. It doesn't compute styles from your stylesheets.
+    // See getComputedStyle().
+
+    setInterval(printProgress, 100);
+</script>
