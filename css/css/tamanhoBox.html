@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tamanho Box</title>
+    <style>
+        body {
+            font-size: 45px;
+            margin: 0px;
+        }
+        div {
+            background-color: yellowgreen;
+            width: 100%;
+            height: 300px;
+            padding: 100px;
+            border: solid 20px;
+            /* nesse caso ficaria 240 pxiels a mais */
+            /* uma solução... */
+            /* content-box é o padrão nesse caso vai dizer que a largura do context box teem q ser
+                100% da largura do body, não considera o paddin e o border, podendo extrapolar
+                valores fixos do width e height geram o mesmo resultado, eles vao se dizer a  largura e o tamanho
+                do box
+             */
+            /* box-sizing: content-box; */
+
+            /* content box + padding box + border box vão ser considerados pro tamanho da caixa */
+            box-sizing: border-box;
+            /* não é passada por herença, pra passar pra todos faz
+                * {
+                    box-sizing:  border-box;
+                }
+             */
+        }   
+    </style>
+</head>
+<body>
+    <div>
+        O tamanho do Box é...
+    </div>
+</body>
+</html>

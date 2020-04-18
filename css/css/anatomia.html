@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        /* ... */
+        /* um seletor pode ser uma propriedade, próprio elemento html*/
+        /* .nome define uma classe   */
+        .seletor { 
+            color: #fff;
+            font-size: 30px;
+            text-align: center;
+            /* propriedade com multiplos valores  */
+            border:solid 5px  navy; /* shorthand property */
+            /* multiplos valores pode servir para alternativas,
+            nesse caso vai escolher a primeira que ele encontrar */
+            font-family: Helvetica, monospace;
+            /* Funções pre-definida */
+            width: calc(100% - 500px);
+            background-color: rgb(11, 178, 224);
+        }
+
+        /*  Usando uma pseudo-classe, aplica estilo quando um estado acontece */
+        .seletor:hover {
+            background-color: orangered;
+        }
+        /* Usando um pseudo-elemento */
+        .seletor::first-letter {
+            font-size: 60px;
+            font-weight: bold;
+        }
+        /* Padraão de nomenclatura */
+        /* dash-case ou camelCase */
+        
+        /* é case sensitive */
+    </style>
+</head>
+
+<body>
+    <div class="seletor">Conteúdo</div>
+</body>
+
+</html>

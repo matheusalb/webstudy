@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades #02</title>
+    <style>
+        .fora {
+            /* position: relative; */
+            background-color: orange;
+            height: 400px;
+            width: 400px;
+            /* padding: 50px; */
+        }
+
+        .dentro {
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /* ocupa o espaço dedicado ao conteúdo */
+            position: relative; /* ocupa o espaço dedicado ao conteúdo */
+            position: absolute; 
+            /* nesse caso o width vai ser 100% do conteúdo + o padding do seu pai, 
+            Para todas os atributos porcentagens: conteudo + padding do pai*/
+           
+            /* position: fixed; */
+             /* o % vai ser em relação ao VIEWPORT, que é o tamanho da tela do broswer*/
+
+        }
+        .forafora {
+            position: relative;
+            height: 600px;
+            width: 1500px;
+        }   
+    </style>
+</head>
+<body>
+    <div class="forafora">
+        <div class="fora">
+            <div class="dentro"></div>
+        </div>
+    </div>
+</body>
+</html>

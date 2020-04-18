@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Altura e Largura</title>
+    <style>
+        html {
+            height: 100%; 
+            /* por padrão ela só ocuparia a parte 'utilizada' da página, em relação a altura */
+            /* nesse caso o html vai ocupar a página toda */
+        }
+        body {
+            font-size: 40px;
+            background-color: coral;
+            height: 100%;
+            margin: 0;
+        }
+
+        div {
+            background-color: seagreen;
+        }
+
+        span {
+            background-color: dodgerblue;
+        }
+
+        /* display inline ignora width e height */
+        span, div {
+            width: 50%; /*isso funciona pq por padrao o body já ocupa a largura toda*/
+            height: 250px; /* Dessa forma o body aumenta de tamanho*/
+            height: 50%; /* 50% do componente ao qual ela pertence, nesse caso o body, e por ele ocupar, por padrão, o tamanho q equivale a junção dos elementos nao vai acontecer nd */
+            /* body tb aumenta ao adicionar novos elementos */
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Título</div> 
+    <!-- como juntos os dois ocupam 100% da largura n~ão pode haaver um enter ou espaço entre o div e o span
+        caso hava, vão ficar em linhas diferentes
+    -->
+    <span>Subtítulo</span>
+</body>
+
+</html>

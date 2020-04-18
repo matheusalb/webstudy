@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        /* * {
+            // seletor universal,propriedades podem ser sobrescrito por outra classe 
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* seletor de classe */
+        /* .tag {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        
+        /* seletor de id */
+       
+        /* #aprovados {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        
+        /* seletor de filho direto */
+        /* #aninhado > div{
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* mostrando que nao acha se o filho nao for direto */
+        /* #aninhado > section {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* Seleciona todas as section (descendentes) que tiverem dentro de #aninhado */
+        /* #aninhado section {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* seletor de irmãos adjacentes, um seguido do outro, seleciona o segundo elemento */
+        /* "seleciona ul que seja o proximo irmão imediatamente de p, ou seja ul tem como irmão imediatamente antes o p" */
+        /* p + ul {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* ol nao é o irmão depois do p*/
+        /* p + ol {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* seleciona o ol que tem o p como irmão ANTERIOR, não necessariamente atras dele,  div*/
+        /* p ~ ol {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* por propriedade */
+        /* [feira] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+       /* por propriedade ccom valor  */
+        /* [feira=casa] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* não encontra por não ter nome exatemente igual */
+        /* [feira=escritorio] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* se botar um ~ ele procura atributos que tenham esse nome,  podendo não ser extamente só ele */
+        /* [feira~=escritorio] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* [feira*=sa] procura se tem as letras 'sa' em todo valor do atributo*/
+
+        /* aplica em span que seja o primeiro filho de alguém */
+        /* span:nth-child(1) {
+            color: #ff0;
+            background-color: #f77;
+        } */   
+
+        /* pegando os filhos impares de section */
+        /* section > :nth-child(even) {
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* , funcina como um && */
+        /* section > :nth-child(odd), ul, p{
+            color: #ff0;
+            background-color: #f77;
+        } */
+
+        /* seleciona só o segundo elemento do tipo span que é filho direto de sction*/
+        section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: #f77;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+            <p class='tag'>1</p>
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag nolabel'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

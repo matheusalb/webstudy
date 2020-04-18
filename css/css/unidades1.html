@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades #01</title>
+    <style>
+        .unidades-absolutas {
+            position: absolute;
+            font-size: 40px;
+            padding: 20px;
+            border: solid 5px #222;
+            margin: 30px;
+            width: 4cm; /* unidades pouco usadas */
+            height: 20mm; /* pouco usado*/
+            top: 150px;
+            left: 200px;
+        }
+
+        .unidades-relativas {
+            position: absolute;
+            /* xem é x vezes o tamanho da propriedade do pai */
+            font-size: 4em;
+            /*  a fonte padrão do broswer vai afetar a minha fonte
+                é interessante preferir unidades-relativas, pois o site fica
+                mais responsível. */
+            padding: 5%;
+            /* a porcentagem é afetada pelo tipo de position */
+            border: solid 1vw #222;
+            margin: .8%;
+            width: 20vw;
+            height: 15vh;
+            bottom: 5%;
+            right: 5%;
+        }
+
+        /* 
+            vh -> 1/100 da altura do viewport
+            vw -> 1/100 da largura do viewport
+            vmin -> 1/100 da menor medida (altura ou largura) 
+            vmax -> 1/100 da maior medida (altura ou largura) 
+
+            --------- FONT 
+            são múltiplos
+            rem -> tamanho da fonte relativo ao raiz da aplicação (html)
+            em -> fonte baseada no pai
+        
+         */
+
+    </style>
+</head>
+
+<body>
+    <div class="unidades-absolutas">Opa!</div>
+    <div class="unidades-relativas">Epa!</div>
+</body>
+
+</html>

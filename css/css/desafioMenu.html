@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Doider@s</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+
+        header {
+           position: relative;
+        }
+
+        .cabecalho {
+            font-size: 1.4em;
+            font-family: 'Oswald', sans-serif;
+            background-color: #313A46;
+            border-bottom: 5px solid #0C55BA ;
+            color: white;
+        }
+        .logo {
+            position: relative;
+            display: inline-block;
+            margin: 10px 20px 10px 20px;
+            height: 50px;
+            bottom: 5px;
+        }
+        .logo a {height: inherit;}
+        .logo img {height: inherit;}
+
+        .menu {
+            display: inline-block;
+            position: relative;
+            bottom: 20px;
+            margin-left: 40px;
+            padding-top: 20px;
+            height: 30px;
+        }
+
+        .menu a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu ul, .menu  ol{
+            list-style: none;
+            padding-left: 0px;
+            margin: 0px;
+        }
+        
+        .menu li {
+            display: inline-block;
+            margin: 2px;
+            align-items: center;
+
+            /* o padding tá formando a caixinha pintada */
+            padding: 20px 30px;
+            /* height: 40px; */
+        }
+
+        .menu li:hover {
+            background-color:rgb(72, 89, 167);
+            color: black;
+        }
+
+        .autenticacao {
+            position: absolute;
+            color: inherit;
+            display: inline-block;
+            right: 3%;
+            top: 22px;
+        }
+        
+        .autenticacao a {
+            color: inherit;
+            text-decoration: none;
+            margin: 0px 20px;
+        }
+        
+        .menu-toggle {
+            display: none;
+        }
+
+        .botao {
+            /* border: 1px solid rgb(182, 43, 43); */
+            border-radius: 25px;
+            padding: 10px 20px;
+            background-color: rgb(182, 43, 43);
+        }
+        
+        .destaque:active {
+            /* box-shadow: black -2px -2px; */
+            /* padding-top: 1px; */
+        }
+
+        body {
+            color: gainsboro;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+            </a>
+        </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <nav class="menu">
+            <ul>
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+                <li>
+                    <a href="#cursos">Cursos</a>
+                </li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                </li>
+                <li>
+                    <a href="#contato">Contato</a>
+                </li>
+            </ul>
+        </nav>
+        <aside class="autenticacao">
+            <a href="#login">Login</a>
+            <a href="#registrar" class="botao destaque">Registrar</a>
+        </aside>
+    </header>
+
+    <script>
+        // ...
+    </script>
+</body>
+
+</html>

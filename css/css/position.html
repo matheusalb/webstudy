@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Position</title>
+    <style>
+        /* https://www.w3schools.com/css/css_positioning.asp 
+           https://medium.com/@leannezhang/difference-between-css-position-absolute-versus-relative-35f064384c6
+           https://1stwebdesigner.com/sticky-vs-fixed-navigation-a-comparison/
+        */
+        /* body {
+            margin: 0;
+        } */
+
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+            color: #fff;
+            /* padrão é static
+               ele leva em consideração o anterior
+             */
+        }
+
+        .static {
+            top: 100px;
+            left: 100px;
+            /* posição static não coinsidera top, left
+               ele leva em consideração a disposição dos outros componentes
+             */
+            background-color: steelblue;
+        }
+
+        .fixed {
+            position: fixed;
+            /* posicionada em relação ao view port */
+            bottom: 0px;
+            right: 0px;
+            background-color: tomato;
+            border: 0px;
+        }
+        
+        .relative1 {
+            /* leva em consideração o elemento anterior, que não seja FIXED */
+            position: relative;
+            right: 200px;
+            top: 20px;
+            /* calcula a distancia em relação ao elemento anterior */
+            background-color: seagreen;
+        }
+
+        .absolute1 {
+            /* leva em consideração ao elemento que ele está dentro
+               caso ele não seja STATIC, caso seja, ele vai buscar mais em cima, alguem que não seja
+               STATIC, caso não fica em relação ao html
+               se posiciona em relação ao fim da borda BORDA pra dentro!
+             */
+            position: absolute;
+            left: 500px;
+            top: 800px;
+            background-color: violet;
+        }
+
+        .relative2 {
+            /* A div do relative continua no mesmo lugar
+                em cima da div do sticky
+             */
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategrey;
+        }
+
+        .absolute2 {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .sticky {
+            /* alterna entre relative e fixed */
+            position: sticky;
+            background-color: #777;
+            top: 0px;
+            border: 0px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="static">Static (Padrão)</div>
+    <div class="fixed">Fixed</div>
+    <div class="relative1">Relative</div>
+    <div class="absolute1">Absolute</div>
+
+    <div class="relative2">
+        <div class="absolute2"></div>
+    </div>
+
+    <div class="sticky">Sticky</div>
+    <p style="padding-bottom: 2000px;">Opa</p>
+</body>
+
+</html>
