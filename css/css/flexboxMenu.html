@@ -11,14 +11,23 @@
             font-family: 'Oswald', sans-serif;
             background-color: lightgray;
         }
-        
+
         .cabecalho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+
             background: #333;
             color: #fff;
             border-bottom: solid 5px #4faddb;
             height: 80px;
         }
-        
+        .logo{
+            display: inline-block;
+            margin: 10px;
+        }
+
         .logo img {
             height: 50px;
         }
@@ -51,8 +60,36 @@
             background: #f50a31;
             color: #fff;
         }
+
+        .autenticacao {
+        }
+
         /* ==================== */
-        /* Solução com Flex Box */
+        .menu {
+            /* display: inline; */
+            /* ele cresce bem mais que os outros */
+            flex-grow: 10;
+
+            margin-left: 50px;
+        }
+
+
+        .menu ul{
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+        }
+
+        .menu li {
+            margin: 5px;
+        }
+
+        .menu a {
+            /* aumenta o paddin pra aumentar a caixa selecionável */
+            padding: 20px 15px;
+            /* display: inline-block;
+            height: 400px; */
+        }
         /* ==================== */
     </style>
 </head>

@@ -4,8 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Desafio Card</title>
-    <style>
-        /* ... */
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <style> 
+
+        body {
+            font-family: 'Verdana', sans-serif;
+        }
+        .curso {
+            display: inline-block;
+            /* float: left; */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: solid 1px #CCC;
+            height: 300px;
+            width: 260px;
+            margin: 5px 20px;
+            /* alinhamentoe entre elementos */
+            vertical-align: top;
+            padding: 5px;
+        }
+        .curso img {
+            max-height: 50%;
+            width: 100%;
+        }
+        .curso .curso-info {
+            box-sizing: content-box;
+            padding: 10px;
+
+            /* setar o tamanho do bloco pra nao atraplhar os outros em entrar na caixa! */
+            height: 90px;
+            font-family: inherit;
+            overflow: hidden;
+            /* position: relative; */
+            /* top: -30px; */
+        }
+        .curso .curso-info h4 {
+            font-size: 1.4em;
+            font-weight: normal;
+            margin: 0px;
+        }
+        
+        .curso .curso-info p {
+        }
+
+        .curso .curso-preco {
+            text-align: right;
+            padding-bottom: 10px;
+        }
+
+        .preco-de {
+            font-size: 0.9em;
+            color: red;
+            text-decoration: line-through;
+        }
+
+        .preco-por {
+            font-size: 1.4em;
+            color: green;
+            font-weight: bold;
+        }
     </style>
 </head>
 

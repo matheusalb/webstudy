@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        // se fosse arrow sempre seria window
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log 
+
+        const lista = document.querySelector('div ul')
+
+        // pega o elemento pai
+        lista.parentNode.log()
+        // pega todos os filhos, se tiver espaço na escrita vai aparecer elementos 'text'
+        // ou se realmente tiver um texto escrito vai vir ele tbm
+        lista.childNodes.log()
+
+        const primeiro = lista.firstChild
+        primeiro.log()
+        primeiro.nextSibling.log()
+
+        const ultimo = lista.lastChild
+        ultimo.log()
+        ultimo.previousSibling.log()
+
+        // não vem os textos, mais interessante, vem como HTMLCollection
+        lista.children.log()
+        // retorna a primeira tag que é filha
+        lista.firstElementChild.log()
+        lista.lastElementChild.log()
+        lista.parentNode.previousElementSibling.log()
+        lista.parentNode.nextElementSibling.log()
+
+        // o mais ideal é utilizar essa abordagem, quando for possível
+        document.querySelectorAll('div ul li').log()
+    </script>
+</body>
+
+</html>

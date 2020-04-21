@@ -6,7 +6,36 @@
     <title>Flexbox #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            /* height: 200px;
+            overflow: hidden; */
+        }   
+
+        .flex-container div {
+            /* diz o tamanho de um elemento dentro do flex container 
+               em relação ao main axis
+            */
+
+            /* os dois funcionam, a não ser que estejam conflitando,
+               nesse caso o flex-basis sempre ganha */
+            flex-basis: 100px;
+            /* diferença é que é sempre a largura, e não o tamanho do main axis */
+            width: 200px;
+            /* height: 700px; */
+        }
+
+        .flex-container div:nth-child(4) {
+            /* grow shrink basis */
+            flex: 3 6 100px;
+        }
+
+        .flex-container {
+            width: 300px;
+            width: 600px;
+        }
+
     </style>
 </head>
 

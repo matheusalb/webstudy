@@ -6,7 +6,47 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* padrão é order 0 */
+            /* os elementos que tem maior ordem são exibidos por último */
+            order: 1;
+            order: 0;
+            order: -1;
+            /* alinhamento em relação ao cross axis */
+            align-self: center;
+            align-self: flex-start;
+            align-self: stretch; /* padrão */
+        } 
+
+        .flex-container div {
+            width: 100px;
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+        
+        /* o seletor pega o primeiro elemento que tá definido
+           no html e não o que está na ddiv
+         */
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+        
+        /* o flex-grow é usado para dividir o espaço RESTANTE!!!!!!!!!!  */
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 1;
+        }
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5;
+        }
     </style>
 </head>
 

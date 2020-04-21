@@ -6,7 +6,55 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* flex box trabalha em uma só dimensão, podendo quebrar 
+           a linha como uma forma de continuar
+        */
+        .big {
+            font-size: 1.5em;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row;
+            width: 25%;
+            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
+            flex-flow: row wrap;
+            height: 200px;
+            flex-flow: column-reverse wrap;
+            flex-flow: row wrap;
+
+            justify-content: flex-start;
+            justify-content: flex-end;
+            justify-content: center;
+            justify-content: space-around;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+
+            height: 400px;
+            /* Atributos que utilizam o Cross Axis */
+            align-items: stretch; /* Padrão */
+            /* alinha pela linha de base da fonte */
+            align-items: baseline;
+            align-items: flex-end;
+            align-items: center;
+
+            /* Quando tiver mais de uma linha, vai alinhar as linhas, mesmos  valores que o justify-content só que 
+                se aplicando a linha.
+
+                -> Alinha os elementos em relação a linha que contém os elementos,
+                pelo cross axis, se houver espaço sobrando
+             */
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-around;
+            align-content: space-between;
+
+        }
     </style>
 </head>
 
