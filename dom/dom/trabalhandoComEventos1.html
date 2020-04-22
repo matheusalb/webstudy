@@ -9,9 +9,27 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick = "navegarEm5s(event)" -->
+        <a espera-um-pouco='1' href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault()
+            console.log('Saindo em', e.target.getAttribute('espera-um-pouco'),'...........')
+            setTimeout(() =>  {
+                // target é o elemento HTML que desparou o evento
+                const link = e.target
+                // com isso substituo o endereço da barra do browser
+                window.location.href = link.href
+            }, e.target.getAttribute('espera-um-pouco')*1000)
+        }
+
+        // mesma coisa
+        document.querySelector('a').onclick = navegarEm5s
+
+        // atributo personalizado quase sempre é pra ser utilizado pelo JS
+        // pois, o browser o ignora
+        // const a = document.querySelector('[espera-um-pouco]')
+        // a.onclick = navegarEm5s
     </script>
 </body>

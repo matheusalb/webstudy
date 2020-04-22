@@ -12,7 +12,23 @@
         <p>Texto Inicial</p>
     </div>
     <script>
-        // ...
+        const xdiv = document.querySelector('div')
+        // tira tudo que tá dentro do div e coloca oq tá dps da atribuição
+        // sobrescreve tudo q tá dentro
+        div.innerHTML = 'é o tiriri'
+        // Substitui a div em si
+        // div.outerHTML = 'é o tiriri2'
+
+        // antes de começar a div insere um HTML
+        div.insertAdjacentHTML('beforebegin','<p>Antes do início</p>')
+        // já aqui vai inserir dentro dele
+        div.insertAdjacentHTML('afterbegin', '<p>Depois do início</p>')
+        div.insertAdjacentHTML('beforeend', '<p>Antes do fim</p>')
+        div.insertAdjacentHTML('afterend', '<p>Depois Fim </p>')
+
+        // somente texto (sem tags)
+        console.log(div.innerText)
+        console.log(div.innerHTML)
     </script>
 </body>
 

@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Flappy Bird</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/flappy.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Flappy Bird</title>
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/flappy.css">
+    </head>
 
-<body class="conteudo">
-    <h1>Flappy Bird</h1>
-    <div wm-flappy></div>
-    <script src="js/flappy.js"></script>
-</body>
+    <body class="conteudo">
+        <h1>Podreiras Bird</h1>
+
+        <div wm-menu class="menu">
+            <ul>
+                <li>
+                    <h1> Podreiras Bird</h1>
+                </li>
+                <li id="start">
+                    <button type="button" started>Start</button>
+                </li>
+            </ul>
+        </div>
+
+        <div wm-flappy>
+            <img id="boneco"src="imgs/cabecao.png" alt="">
+            <object class="cano" distancia-superior='100px' father> 
+                <div superior>
+                    <div base-superior></div>
+                    <div tampa-superior></div>
+                </div>
+                <div vazio></div>
+                <div inferior>
+                    <div tampa-inferior></div>
+                    <div base-inferior></div>
+                </div>
+            </object>
+        </div>
+        <script src="js/flappy.js"></script>
+    </body>
 
 </html>

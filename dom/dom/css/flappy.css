@@ -1,0 +1,118 @@
+.menu {
+    background-color:  #00995c;
+    width: 90%;
+    height: 80%;
+}
+.menu h1 {
+}
+
+.menu ul {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menu #start {
+    width: 30%;
+    height: 30%;
+}
+
+.menu button {
+    font-size: 2.0em;
+    width: 100%;
+    height: 100%;
+}
+
+
+body [wm-flappy] {
+    display: none;
+    position: relative;
+    background-color: skyblue;
+    flex-direction: row;
+    width: 90%;
+    height: 80%;
+    overflow: hidden;
+}
+
+
+
+#boneco {
+    width: 70px;
+    position: absolute;
+    top: 3%;
+    left: 40%;
+}
+
+.cano {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    width: 100px;
+    height: 100%;
+    left: 100%;
+    /* margin-left: 100px; */
+}
+
+.cano [superior] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* aqui seta a altura */
+    flex-basis: 100px;
+    align-items: center;
+}
+
+.cano [superior] [base-superior] {
+    box-sizing: border-box;
+    width: 80%;
+    flex-basis: 100%;
+    background-color: rgb(52, 189, 64);
+    border: 2px solid black;
+    border-bottom: 0px;
+    border-top: 0px;
+}
+
+.cano [superior] [tampa-superior] {
+    box-sizing: border-box;
+    flex-basis: 35px;
+    width: 100%;
+    border: 2px solid black;
+    background-color: rgb(52, 189, 64);
+}
+
+.cano [vazio] {
+    box-sizing: border-box;
+    width: 100%;
+    flex-basis: 160px;
+}
+
+.cano [inferior]{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+
+
+.cano [inferior] [base-inferior] {
+    box-sizing: border-box;
+    background-color: rgb(52, 189, 64);
+    border: 2px solid black;
+    border-top: 0px;
+    border-bottom: 0px;
+    width: 80%;
+    flex-basis: 100%;
+}
+.cano [inferior] [tampa-inferior] {
+    box-sizing: border-box;
+    flex-basis: 35px;
+    width: 100%;
+    border: 2px solid black;
+    background-color: rgb(52, 189, 64);
+}

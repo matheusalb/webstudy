@@ -10,6 +10,17 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => {
+            // seleciona o tipo do cursor do mouse ao passar em cima
+            item.style.cursor = 'move'
+            if (e.buttons) {
+                // clientHeight é a altura interna do elemento em pixels
+                e.target.style.top = `${e.clientY - (e.target.clientHeight / 2)}px` 
+                e.target.style.left =  `${e.clientX - (e.target.clientWidth / 2)}px`
+            }
+         }
     </script>
 </body>
