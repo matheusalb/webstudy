@@ -51,6 +51,51 @@ setInterval(() => {
     }
 }, 7);
 
+// pontuacao
+let score = 0
+let insideElement = null
+
+function verifyInside (e) {
+    let cano = e
+    let boneco = document.querySelector('#boneco')
+    let bonecoStyle = window.getComputedStyle(boneco)
+    let childrens = cano.children
+    let canoSuperior = childrens[0]
+    let vazio = childrens[1]
+    let canoInferior = childrens [2]
+    let canoStyle = window.getComputedStyle(cano)
+
+    return (((parseInt(bonecoStyle.left) + boneco.clientWidth/*+ boneco.clientWidth/2*/ >= parseInt(canoStyle.left)) && 
+    parseInt(bonecoStyle.left) /*- boneco.clientWidth/2*/ <= parseInt(canoStyle.left) + cano.clientWidth) &&
+    ( (parseInt(bonecoStyle.top) /*- boneco.clientHeight/2*/ > parseInt(canoSuperior.style.flexBasis)) &&
+    (parseInt(bonecoStyle.top) + boneco.clientHeight  /*+ boneco.clientHeight/2*/ < parseInt(canoSuperior.style.flexBasis) + parseInt(window.getComputedStyle(vazio).flexBasis))  
+    )) 
+}
+
+
+function insideBox() {
+    
+    if (!insideElement) {
+        document.querySelectorAll('.cano').forEach(e => {
+            if(!insideElement && verifyInside(e)){
+                insideElement = e
+            }
+        })
+    } else {
+        if(!verifyInside(insideElement)) {
+            score++
+            document.getElementById('score').innerHTML = `score: ${score}`
+            console.log(score)
+            insideElement = null
+        }
+    }
+}
+
+setInterval(() => {
+    insideBox()
+}, 7);
+
+
 // botando e excluindo os canos 
 setInterval(() => {
     if(document.querySelector('#start button').getAttribute('started') === 'true') {
@@ -58,7 +103,16 @@ setInterval(() => {
         cano.setAttribute('father', 'false')
         cano.firstElementChild.style.flexBasis = `${mapRandom[index.value]}px`
         cano.style.display = 'flex'
-        document.querySelector('[wm-flappy]').appendChild(cano) 
+        document.querySelector('[wm-flappy]').appendChild(cano)
+        
+        document.querySelectorAll('.cano').forEach(e => {
+            let canoStyle = window.getComputedStyle(e)
+
+            if (parseInt(e.left) <= -10) {
+                document.querySelector('[wm-flappy').removeChild(e)
+                console.log('removi')
+            }
+        })
     }
 
 }, 3000);
@@ -77,19 +131,48 @@ setInterval(() => {
     }
 }, 50);
 
+function isCollide(boneco, bonecoStyle, cano) {
+    let childrens = cano.children
+    let canoSuperior = childrens[0]
+    let vazio = childrens[1]
+    let canoInferior = childrens [2]
+    let canoStyle = window.getComputedStyle(cano)
+
+    // console.log('1. ', parseInt(bonecoStyle.left) + boneco.clientWidth >= parseInt(canoStyle.left), 
+    //             '2. ', parseInt(bonecoStyle.left) <= parseInt(canoStyle.left),
+    //             '3. ', parseInt(bonecoStyle.top) <= parseInt(canoSuperior.style.flexBasis),
+    //             '4. ', parseInt(bonecoStyle.top) + boneco.clientHeight >= parseInt(canoSuperior.style.flexBasis) + parseInt(window.getComputedStyle(vazio).flexBasis)
+    // )
+    // console.log(parseInt(bonecoStyle.top) + boneco.clientHeight/2 >= parseInt(canoSuperior.style.flexBasis) + parseInt(window.getComputedStyle(vazio).flexBasis))
+    // console.log(parseInt(bonecoStyle.top), boneco.clientHeight/2, parseInt(bonecoStyle.top) + boneco.clientHeight/2,  parseInt(canoSuperior.style.flexBasis))
+    // console.log('cano width', cano.clientWidth)
+    return ((parseInt(bonecoStyle.left) + boneco.clientWidth/*+ boneco.clientWidth/2*/ >= parseInt(canoStyle.left)) && 
+            parseInt(bonecoStyle.left) /*- boneco.clientWidth/2*/ <= parseInt(canoStyle.left) + cano.clientWidth) &&
+            ( (parseInt(bonecoStyle.top) /*- boneco.clientHeight/2*/ <= parseInt(canoSuperior.style.flexBasis)) ||
+              (parseInt(bonecoStyle.top) + boneco.clientHeight  /*+ boneco.clientHeight/2*/ >= parseInt(canoSuperior.style.flexBasis) + parseInt(window.getComputedStyle(vazio).flexBasis))  
+            )
+    }
+    
 // Verifica colisão 
 setInterval(() => {
 
     let boneco = document.querySelector('#boneco')
     let style = window.getComputedStyle(boneco)
-    console.log(style.left)
+    // console.log(style.x)
     document.querySelectorAll('.cano').forEach(e => {
         if(e.getAttribute('father') !== "true") {
-
+            // console.log(boneco.getAttribute('width'))
+            // console.log(boneco.clientWidth)
+            if(isCollide(boneco, style, e)) {
+                endGame()
+            }
         }
     })
     
-}, 3);
+}, 20);
+
+
+
 
 // movimento para subir
 window.addEventListener('keypress', event => {
@@ -103,3 +186,18 @@ window.addEventListener('keypress', event => {
         }
     }
 } ) 
+
+function endGame() {
+    document.querySelector('#start button').setAttribute('started', 'false')
+    document.querySelector('[wm-flappy]').style.display = 'none'
+    document.querySelector('[wm-endgame]').style.display = 'flex'
+
+    document.getElementById('score-end').innerHTML = `Final Score: ${score}`
+    document.querySelector('[wm-endgame] button').onclick = function (e) {
+        document.querySelector('div.menu').style.display = 'none'
+        document.querySelector('[wm-flappy]').style.display = 'flex'
+    
+        document.querySelector('#start button').setAttribute('started', 'true')
+        // document.querySelector('#boneco').top = '50px'
+    }
+}
