@@ -1,3 +1,8 @@
+/* @font-face{
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf')
+} */
+
 .menu {
     background-color:  #00995c;
     width: 90%;
@@ -79,6 +84,7 @@ body [wm-flappy] {
     border: 2px solid black;
     border-bottom: 0px;
     border-top: 0px;
+    background: linear-gradient(90deg, #639301, #A5E72E);
 }
 
 .cano [superior] [tampa-superior] {
@@ -87,6 +93,7 @@ body [wm-flappy] {
     width: 100%;
     border: 2px solid black;
     background-color: rgb(52, 189, 64);
+    background: linear-gradient(90deg, #639301, #A5E72E);
 }
 
 .cano [vazio] {
@@ -112,6 +119,8 @@ body [wm-flappy] {
     border-bottom: 0px;
     width: 80%;
     flex-basis: 100%;
+    background: linear-gradient(90deg, #639301, #A5E72E);
+
 }
 .cano [inferior] [tampa-inferior] {
     box-sizing: border-box;
@@ -119,6 +128,8 @@ body [wm-flappy] {
     width: 100%;
     border: 2px solid black;
     background-color: rgb(52, 189, 64);
+    background: linear-gradient(90deg, #639301, #A5E72E);
+
 }
 
 #score {

@@ -24,14 +24,12 @@ const index = {
     }
 }
 
-document.querySelector('.cano').style.display = 'none'
-document.querySelector('.cano').setAttribute('father', 'true')
-let cano1 = document.querySelector('.cano').cloneNode(true)
-let cano2 = document.querySelector('.cano').cloneNode(true)
-cano1.style.display = 'flex'
-cano2.style.display = 'flex'
-let map = document.querySelector('[wm-flappy]')
-map.appendChild(cano1)
+// let cano1 = document.querySelector('.cano').cloneNode(true)
+// let cano2 = document.querySelector('.cano').cloneNode(true)
+// cano1.style.display = 'flex'
+// cano2.style.display = 'flex'
+// let map = document.querySelector('[wm-flappy]')
+// map.appendChild(cano1)
 // map.appendChild(cano2)
 
 
@@ -40,11 +38,11 @@ setInterval(() => {
     if(document.querySelector('#start button').getAttribute('started') === 'true') {
         // console.log('tamanho', document.querySelectorAll('.cano').length)
         document.querySelectorAll('.cano').forEach(e => {
-
+            
             if(e.getAttribute('father') !== "true") {
                 let positionX = e.style.left || 'calc('+window.getComputedStyle(e).getPropertyValue('left')+')'
                 positionX = parseInt(positionX.substr(5, positionX.length - 1))
-
+                
                 e.style.left = `calc(${positionX}px - 1px)`
             }
         })
@@ -64,7 +62,7 @@ function verifyInside (e) {
     let vazio = childrens[1]
     let canoInferior = childrens [2]
     let canoStyle = window.getComputedStyle(cano)
-
+    
     return (((parseInt(bonecoStyle.left) + boneco.clientWidth/*+ boneco.clientWidth/2*/ >= parseInt(canoStyle.left)) && 
     parseInt(bonecoStyle.left) /*- boneco.clientWidth/2*/ <= parseInt(canoStyle.left) + cano.clientWidth) &&
     ( (parseInt(bonecoStyle.top) /*- boneco.clientHeight/2*/ > parseInt(canoSuperior.style.flexBasis)) &&
@@ -96,6 +94,9 @@ setInterval(() => {
 }, 7);
 
 
+// inicializando...
+document.querySelector('.cano').style.display = 'none'
+document.querySelector('.cano').setAttribute('father', 'true')
 // botando e excluindo os canos 
 setInterval(() => {
     if(document.querySelector('#start button').getAttribute('started') === 'true') {
@@ -107,14 +108,14 @@ setInterval(() => {
         
         document.querySelectorAll('.cano').forEach(e => {
             let canoStyle = window.getComputedStyle(e)
-
+            
             if (parseInt(e.left) <= -10) {
                 document.querySelector('[wm-flappy').removeChild(e)
                 console.log('removi')
             }
         })
     }
-
+    
 }, 3000);
 
 
@@ -138,14 +139,6 @@ function isCollide(boneco, bonecoStyle, cano) {
     let canoInferior = childrens [2]
     let canoStyle = window.getComputedStyle(cano)
 
-    // console.log('1. ', parseInt(bonecoStyle.left) + boneco.clientWidth >= parseInt(canoStyle.left), 
-    //             '2. ', parseInt(bonecoStyle.left) <= parseInt(canoStyle.left),
-    //             '3. ', parseInt(bonecoStyle.top) <= parseInt(canoSuperior.style.flexBasis),
-    //             '4. ', parseInt(bonecoStyle.top) + boneco.clientHeight >= parseInt(canoSuperior.style.flexBasis) + parseInt(window.getComputedStyle(vazio).flexBasis)
-    // )
-    // console.log(parseInt(bonecoStyle.top) + boneco.clientHeight/2 >= parseInt(canoSuperior.style.flexBasis) + parseInt(window.getComputedStyle(vazio).flexBasis))
-    // console.log(parseInt(bonecoStyle.top), boneco.clientHeight/2, parseInt(bonecoStyle.top) + boneco.clientHeight/2,  parseInt(canoSuperior.style.flexBasis))
-    // console.log('cano width', cano.clientWidth)
     return ((parseInt(bonecoStyle.left) + boneco.clientWidth/*+ boneco.clientWidth/2*/ >= parseInt(canoStyle.left)) && 
             parseInt(bonecoStyle.left) /*- boneco.clientWidth/2*/ <= parseInt(canoStyle.left) + cano.clientWidth) &&
             ( (parseInt(bonecoStyle.top) /*- boneco.clientHeight/2*/ <= parseInt(canoSuperior.style.flexBasis)) ||
@@ -201,3 +194,5 @@ function endGame() {
         // document.querySelector('#boneco').top = '50px'
     }
 }
+
+// a.getBoudingClientRect()
