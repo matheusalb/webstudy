@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        input {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Eventos #01</h1>
+    <div id='posicao'></div>
+    <div id='cliques'>Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background">
+
+    <script>
+        function mostarPosicaoMouse(e) {
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`)
+        }
+
+        $('body').on('mousemove', mostarPosicaoMouse)
+
+        $('#posicao').mouseover(e => {
+            $('body').off('mousemove', mostarPosicaoMouse)
+        })
+
+        $('#posicao').mouseleave(e => {
+            // $('body').on('mousemove', mostarPosicaoMouse)
+            $('body').mousemove(mostarPosicaoMouse)
+        })
+
+        let cliques = 0
+        $('body').click(e => {
+            $('#cliques').html(`Cliques: ${++cliques}`)
+        })
+
+        const backgroundOriginal  = $('body').css('background-color')
+
+        // keydown e keypress pega o valor c um caracatere a menos 
+        // obs não funciona com arrow pq o this vai ser o window
+        $('input').keyup(function(e) {
+            // console.log(e.target.value)
+            // pegando o valor atual, pelo jquery
+            const valor = $(this).val()
+            // console.log(valor)
+            if (valor.match(/#[\da-fA-F]{3,6}/)) {
+                $('body').css('background-color', valor)
+            } else {
+                $('body').css('background-color', backgroundOriginal)
+            }
+        })
+    </script>
+</body>

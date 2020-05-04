@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <div id='conteudo'></div>
+
+    <script>
+        // function insertDatasInTR(datas) {
+        //     let dataf = []
+        //     for (e of datas){
+        //         dataf.push(`<tr><td>${e.nome}</td><td>${e.nota}</td></tr>`)
+        //     }
+        //     return dataf
+        // }
+        
+        // tabela c 2 colunas
+        
+        // Função que vai ser executada assim que a página estiver pronta
+        // foge do escopo global        
+        // outra forma mais reduzida :
+        // $(function() {
+
+        // })
+        $(document).ready(function() {
+            const pessoas = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+    
+            const tpessoas = pessoas.map(e => {
+                return `<tr><td>${e.nome}</td><td>${e.nota}</td></tr>`
+            })
+
+            $('#conteudo').append('<table id=tabela>')
+            $('#tabela').append('<thead id=tcabecario>').append('<tbody id=tcorpo>')
+            $('#tabela').css('border', '2px solid red')
+            $('#tcabecario').append('<tr>')
+            $('#tcabecario tr').append('<th style="text-align:center">Aluno</th>').append('<th style="text-align:center">Nota</th>')
+            $('#tcorpo').append(tpessoas)
+        })
+
+
+    </script>
+</body>
