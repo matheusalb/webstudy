@@ -12,6 +12,11 @@
             .then(resp => resp.text())
             .then(html => {
                 destino.innerHTML = html
+                // processando o js que chega
+                const resultado = html.match(/\<script\>([\s\S]*)\<\/script\>/)
+                if(resultado) {
+                    eval(resultado)
+                }
             })
     }
 
