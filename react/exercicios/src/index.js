@@ -37,3 +37,6 @@ ReactDOM.render (
 , document.getElementById('root'))
 
 // $('<h1>').html('React 2')
+
+// como startar o react
+// create-react-app calculadora
