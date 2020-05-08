@@ -5,16 +5,9 @@ export default class Display extends Component {
     state = {
         value: this.props.value
     }
-    constructor(props) {
-        super(props)
-
-        this.setValue = this.setValue.bind(this)
-    }
-
-    setValue(e) {
-        this.setState({value: 'valor aqui'})
-    }
-
+    // constructor(props) {
+    //     super(props)
+    // }
     render() {
         return (
             <div className="display" type={this.props.type}>

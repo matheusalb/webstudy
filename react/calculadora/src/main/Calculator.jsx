@@ -12,8 +12,9 @@ export default class Calculator extends Component {
         x: 0.,
         y: 0.,
         operation: null,
-        turn: false,
-        resulted: false
+        resulted: false,
+        clearDisplay: false,
+        changeop: false
     }
 
     updateDisplay(value) {
@@ -47,36 +48,47 @@ export default class Calculator extends Component {
     cleanState() {
         this.state = {
             display: '0',
-            x: 0,
+            x: null,
             y: 0,
-            turn: false
+            changeop: false
         }
     }
 
     cleanAll() {
         this.cleanDisplay()
-
-    }
-
-    operationClicked(operation) {
-        if (!this.state.turn) { 
-            this.state.x = parseFloat(this.state.display)
-            console.log('x ', this.state.x )
-            this.state.turn = !this.state.turn
-            this.state.operation = operation 
-            this.cleanDisplay()
-        } else {
-            this.state.turn = !this.state.turn
-            this.state.y = parseFloat(this.state.display)
-            console.log('y', this.state.y)
-            this.operationEqual()
-            this.state.operation = operation
-            // this.cleanDisplay()
-            // this.state.y  = this.state.display
+        this.state = {
+            display: '0',
+            x: null,
+            y: 0.,
+            operation: null,
+            resulted: false,
+            clearDisplay: false
         }
     }
 
+    operationClicked(operation) {
+        if(!this.state.changeop){
+            this.state.changeop = true
+            if (!this.state.x){
+                this.state.x = parseFloat(this.state.display)
+            }
+            else {
+                this.operationEqual(false)
+                this.state.x = this.state.display
+            }
+            this.state.clearDisplay = true
+       } 
+        this.state.operation = operation
+       
+    }
+
     digitClicked(value) {
+        this.state.changeop = false
+        if(this.state.clearDisplay) {
+            this.cleanDisplay()
+            this.state.clearDisplay = false
+        }
+
         if (this.state.resulted === true){
             this.cleanDisplay()
             this.state.resulted = false
@@ -84,14 +96,12 @@ export default class Calculator extends Component {
         this.updateDisplay(value)
     }
     
-    operationEqual() {
+    operationEqual(bol) {
         if(!this.state.operation) return
-        if(this.state.turn === true) {
-            // nao foi atualizada
-            this.state.y = parseFloat(this.state.display)
-        }
 
-        this.state.turn = false
+        console.log('salvou y ', parseFloat(this.state.display))
+        this.state.y = parseFloat(this.state.display)
+
         switch(this.state.operation) {
             case '+': this.operationSum()
                 break;
@@ -103,14 +113,19 @@ export default class Calculator extends Component {
                 break;
         }
         this.state.resulted = true
+        if (bol) {
+            this.state.operation = null
+            this.state.turn = false
+            this.state.x = null
+        }
     }
 
     operationSum(){
-        this.state.display = this.state.x + this.state.y
+        this.state.display = parseFloat((this.state.x + this.state.y).toFixed(7))
         this.showDisplay()
     }
     operationSubtract(){
-        this.state.display = this.state.x - this.state.y
+        this.state.display = parseFloat((this.state.x - this.state.y).toFixed(7))
         this.showDisplay()
     }
     operationMultiply(){
@@ -147,7 +162,7 @@ export default class Calculator extends Component {
                 <Button type="operation" text="-" onClick = {e=> this.operationClicked('-')}/>
                 <Button type="operation" text="*" onClick = {e=> this.operationClicked('*')}/>
                 <Button type="operation" text="/" onClick = {e=> this.operationClicked('/')}/>
-                <Button type="operation" text="=" onClick = {e=> this.operationEqual()}/>
+                <Button type="operation" text="=" onClick = {e=> this.operationEqual(true)}/>
                 <Button type="option" text="AC" onClick={ e => this.cleanAll()}/>
             </div>
         )
